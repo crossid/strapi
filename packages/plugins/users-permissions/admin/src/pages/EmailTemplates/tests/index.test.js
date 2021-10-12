@@ -75,6 +75,8 @@ describe('ADMIN | Pages | Settings | Advanced Settings', () => {
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;
+        position: relative;
+        outline: none;
       }
 
       .c25 svg {
@@ -89,6 +91,36 @@ describe('ADMIN | Pages | Settings | Advanced Settings', () => {
 
       .c25[aria-disabled='true'] {
         pointer-events: none;
+      }
+
+      .c25:after {
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: -4px;
+        right: -4px;
+        border: 2px solid transparent;
+      }
+
+      .c25:focus-visible {
+        outline: none;
+      }
+
+      .c25:focus-visible:after {
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -5px;
+        bottom: -5px;
+        left: -5px;
+        right: -5px;
+        border: 2px solid #4945ff;
       }
 
       .c26 {
@@ -133,16 +165,18 @@ describe('ADMIN | Pages | Settings | Advanced Settings', () => {
       }
 
       .c8 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-      }
-
-      .c9 {
         background: #ffffff;
+        border-radius: 4px;
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c11 {
         padding-right: 24px;
         padding-left: 24px;
+      }
+
+      .c9 {
+        overflow: hidden;
       }
 
       .c13 {
@@ -152,7 +186,6 @@ describe('ADMIN | Pages | Settings | Advanced Settings', () => {
 
       .c10 {
         position: relative;
-        border-radius: 4px 4px 0 0;
       }
 
       .c10:before {
@@ -380,10 +413,10 @@ describe('ADMIN | Pages | Settings | Advanced Settings', () => {
           class="c7"
         >
           <div
-            class="c8"
+            class="c8 c9"
           >
             <div
-              class="c9 c10"
+              class="c10"
             >
               <div
                 class="c11 c12"

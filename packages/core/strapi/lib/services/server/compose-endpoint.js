@@ -1,6 +1,6 @@
 'use strict';
 
-const { toLower, castArray, trim, prop } = require('lodash/fp');
+const { has, toLower, castArray, trim, prop } = require('lodash/fp');
 
 const compose = require('koa-compose');
 const { resolveRouteMiddlewares } = require('./middleware');
@@ -84,6 +84,7 @@ const getController = (name, { pluginName, apiName }, strapi) => {
     if (pluginName === 'admin') {
       return strapi.controller(`admin::${name}`);
     }
+
     return strapi.plugin(pluginName).controller(name);
   } else if (apiName) {
     return strapi.controller(`api::${apiName}.${name}`);
@@ -94,7 +95,7 @@ const getController = (name, { pluginName, apiName }, strapi) => {
 
 const getAction = (route, strapi) => {
   const { handler, info = {} } = route;
-  const { pluginName, apiName } = info;
+  const { pluginName, apiName, type } = info;
 
   if (Array.isArray(handler) || typeof handler === 'function') {
     return handler;
@@ -102,10 +103,16 @@ const getAction = (route, strapi) => {
 
   const [controllerName, actionName] = trim(handler).split('.');
 
-  const controller = getController(toLower(controllerName), { pluginName, apiName }, strapi);
+  const controller = getController(controllerName, { pluginName, apiName }, strapi);
 
   if (typeof controller[actionName] !== 'function') {
     throw new Error(`Handler not found "${handler}"`);
+  }
+
+  if (has(Symbol.for('__type__'), controller[actionName])) {
+    controller[actionName][Symbol.for('__type__')].push(type);
+  } else {
+    controller[actionName][Symbol.for('__type__')] = [type];
   }
 
   return controller[actionName].bind(controller);

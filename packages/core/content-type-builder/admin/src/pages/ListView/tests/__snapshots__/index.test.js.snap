@@ -71,6 +71,8 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
   border-radius: 4px;
   background: #ffffff;
   border: 1px solid #dcdce4;
+  position: relative;
+  outline: none;
 }
 
 .c12 svg {
@@ -85,6 +87,36 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
 
 .c12[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c12:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c12:focus-visible {
+  outline: none;
+}
+
+.c12:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c16 {
@@ -163,88 +195,6 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
   fill: #32324d;
 }
 
-.c20 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 8px 16px;
-  background: #4945ff;
-  border: none;
-  border: 1px solid #d9d8ff;
-  background: #f0f0ff;
-}
-
-.c20 .c14 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c20 .c17 {
-  color: #ffffff;
-}
-
-.c20[aria-disabled='true'] {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c20[aria-disabled='true'] .c17 {
-  color: #666687;
-}
-
-.c20[aria-disabled='true'] svg > g,
-.c20[aria-disabled='true'] svg path {
-  fill: #666687;
-}
-
-.c20[aria-disabled='true']:active {
-  border: 1px solid #dcdce4;
-  background: #eaeaef;
-}
-
-.c20[aria-disabled='true']:active .c17 {
-  color: #666687;
-}
-
-.c20[aria-disabled='true']:active svg > g,
-.c20[aria-disabled='true']:active svg path {
-  fill: #666687;
-}
-
-.c20:hover {
-  background-color: #ffffff;
-}
-
-.c20:active {
-  background-color: #ffffff;
-  border: 1px solid #4945ff;
-}
-
-.c20:active .c17 {
-  color: #4945ff;
-}
-
-.c20:active svg > g,
-.c20:active svg path {
-  fill: #4945ff;
-}
-
-.c20 .c17 {
-  color: #271fe0;
-}
-
-.c20 svg > g,
-.c20 svg path {
-  fill: #271fe0;
-}
-
 .c21 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -320,6 +270,8 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
   border-radius: 4px;
   background: #ffffff;
   border: 1px solid #dcdce4;
+  position: relative;
+  outline: none;
 }
 
 .c41 svg {
@@ -334,6 +286,36 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
 
 .c41[aria-disabled='true'] {
   pointer-events: none;
+}
+
+.c41:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c41:focus-visible {
+  outline: none;
+}
+
+.c41:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c42 {
@@ -413,6 +395,20 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
   padding-left: 8px;
 }
 
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c25 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -451,33 +447,13 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
   margin-top: 4px;
 }
 
-.c19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c19 > * {
+.c20 > * {
   margin-left: 0;
   margin-right: 0;
 }
 
-.c19 > * + * {
+.c20 > * + * {
   margin-left: 8px;
-}
-
-.c36 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
 }
 
 .c36 > * {
@@ -487,16 +463,6 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
 
 .c36 > * + * {
   margin-left: 16px;
-}
-
-.c40 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
 }
 
 .c40 > * {
@@ -675,6 +641,8 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
   text-transform: uppercase;
   -webkit-text-decoration: none;
   text-decoration: none;
+  position: relative;
+  outline: none;
 }
 
 .c2 svg path {
@@ -683,6 +651,36 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
 
 .c2 svg {
   font-size: 0.625rem;
+}
+
+.c2:after {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  border: 2px solid transparent;
+}
+
+.c2:focus-visible {
+  outline: none;
+}
+
+.c2:focus-visible:after {
+  border-radius: 8px;
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  border: 2px solid #4945ff;
 }
 
 .c4 {
@@ -1189,20 +1187,8 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
           </div>
         </div>
         <div
-          class="c19"
+          class="c19 c20"
         >
-          <button
-            aria-disabled="true"
-            class="c12 c20"
-            disabled=""
-            type="button"
-          >
-            <span
-              class="c17 c18"
-            >
-              Cancel
-            </span>
-          </button>
           <button
             aria-disabled="true"
             class="c12 c21"
@@ -1251,7 +1237,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
         class="c26"
       >
         <div
-          class="c19"
+          class="c19 c20"
         >
           <button
             aria-disabled="false"
@@ -1323,7 +1309,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -1369,7 +1355,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -1429,7 +1415,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -1479,7 +1465,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -1539,7 +1525,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -1587,7 +1573,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -1647,7 +1633,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -1695,7 +1681,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -1755,7 +1741,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -1801,7 +1787,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -1861,7 +1847,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -1909,7 +1895,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -1969,7 +1955,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -2011,7 +1997,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -2071,7 +2057,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -2123,7 +2109,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -2216,7 +2202,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c35 c36"
+                                  class="c35 c19 c36"
                                 >
                                   <svg
                                     class="c37"
@@ -2262,7 +2248,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   role="button"
                                 >
                                   <div
-                                    class="c40"
+                                    class="c19 c40"
                                   >
                                     <span>
                                       <button
@@ -2341,7 +2327,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c35 c36"
+                                  class="c35 c19 c36"
                                 >
                                   <svg
                                     class="c37"
@@ -2387,7 +2373,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   role="button"
                                 >
                                   <div
-                                    class="c40"
+                                    class="c19 c40"
                                   >
                                     <span>
                                       <button
@@ -2466,7 +2452,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c35 c36"
+                                  class="c35 c19 c36"
                                 >
                                   <svg
                                     class="c37"
@@ -2512,7 +2498,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   role="button"
                                 >
                                   <div
-                                    class="c40"
+                                    class="c19 c40"
                                   >
                                     <span>
                                       <button
@@ -2613,7 +2599,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -2665,7 +2651,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -2758,7 +2744,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c35 c36"
+                                  class="c35 c19 c36"
                                 >
                                   <svg
                                     class="c37"
@@ -2804,7 +2790,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   role="button"
                                 >
                                   <div
-                                    class="c40"
+                                    class="c19 c40"
                                   >
                                     <span>
                                       <button
@@ -2883,7 +2869,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c35 c36"
+                                  class="c35 c19 c36"
                                 >
                                   <svg
                                     class="c37"
@@ -2929,7 +2915,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   role="button"
                                 >
                                   <div
-                                    class="c40"
+                                    class="c19 c40"
                                   >
                                     <span>
                                       <button
@@ -3008,7 +2994,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   </svg>
                                 </div>
                                 <div
-                                  class="c35 c36"
+                                  class="c35 c19 c36"
                                 >
                                   <svg
                                     class="c37"
@@ -3054,7 +3040,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                   role="button"
                                 >
                                   <div
-                                    class="c40"
+                                    class="c19 c40"
                                   >
                                     <span>
                                       <button
@@ -3155,7 +3141,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      class="c35 c36"
+                      class="c35 c19 c36"
                     >
                       <svg
                         class="c37"
@@ -3201,7 +3187,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="c40"
+                        class="c19 c40"
                       >
                         <span>
                           <button
@@ -3263,7 +3249,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                       class="c55 c56"
                     >
                       <div
-                        class="c19 c57"
+                        class="c19 c20 c57"
                       >
                         <button
                           type="button"
@@ -3547,7 +3533,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -3593,7 +3579,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -3672,7 +3658,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -3718,7 +3704,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -3797,7 +3783,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -3843,7 +3829,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -3986,7 +3972,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4032,7 +4018,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -4111,7 +4097,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4157,7 +4143,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -4236,7 +4222,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4282,7 +4268,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -4361,7 +4347,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4409,7 +4395,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -4488,7 +4474,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4536,7 +4522,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -4615,7 +4601,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4665,7 +4651,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -4808,7 +4794,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4854,7 +4840,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -4933,7 +4919,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -4979,7 +4965,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -5058,7 +5044,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -5111,7 +5097,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -5204,7 +5190,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           </svg>
                                                         </div>
                                                         <div
-                                                          class="c35 c36"
+                                                          class="c35 c19 c36"
                                                         >
                                                           <svg
                                                             class="c37"
@@ -5250,7 +5236,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           role="button"
                                                         >
                                                           <div
-                                                            class="c40"
+                                                            class="c19 c40"
                                                           >
                                                             <span>
                                                               <button
@@ -5329,7 +5315,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           </svg>
                                                         </div>
                                                         <div
-                                                          class="c35 c36"
+                                                          class="c35 c19 c36"
                                                         >
                                                           <svg
                                                             class="c37"
@@ -5375,7 +5361,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           role="button"
                                                         >
                                                           <div
-                                                            class="c40"
+                                                            class="c19 c40"
                                                           >
                                                             <span>
                                                               <button
@@ -5454,7 +5440,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           </svg>
                                                         </div>
                                                         <div
-                                                          class="c35 c36"
+                                                          class="c35 c19 c36"
                                                         >
                                                           <svg
                                                             class="c37"
@@ -5500,7 +5486,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           role="button"
                                                         >
                                                           <div
-                                                            class="c40"
+                                                            class="c19 c40"
                                                           >
                                                             <span>
                                                               <button
@@ -5579,7 +5565,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           </svg>
                                                         </div>
                                                         <div
-                                                          class="c35 c36"
+                                                          class="c35 c19 c36"
                                                         >
                                                           <svg
                                                             class="c37"
@@ -5627,7 +5613,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           role="button"
                                                         >
                                                           <div
-                                                            class="c40"
+                                                            class="c19 c40"
                                                           >
                                                             <span>
                                                               <button
@@ -5706,7 +5692,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           </svg>
                                                         </div>
                                                         <div
-                                                          class="c35 c36"
+                                                          class="c35 c19 c36"
                                                         >
                                                           <svg
                                                             class="c37"
@@ -5754,7 +5740,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           role="button"
                                                         >
                                                           <div
-                                                            class="c40"
+                                                            class="c19 c40"
                                                           >
                                                             <span>
                                                               <button
@@ -5833,7 +5819,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           </svg>
                                                         </div>
                                                         <div
-                                                          class="c35 c36"
+                                                          class="c35 c19 c36"
                                                         >
                                                           <svg
                                                             class="c37"
@@ -5883,7 +5869,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                                           role="button"
                                                         >
                                                           <div
-                                                            class="c40"
+                                                            class="c19 c40"
                                                           >
                                                             <span>
                                                               <button
@@ -6067,7 +6053,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -6113,7 +6099,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -6192,7 +6178,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -6240,7 +6226,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button
@@ -6319,7 +6305,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               </svg>
                                             </div>
                                             <div
-                                              class="c35 c36"
+                                              class="c35 c19 c36"
                                             >
                                               <svg
                                                 class="c37"
@@ -6365,7 +6351,7 @@ exports[`<ListView /> renders and matches the snapshot 1`] = `
                                               role="button"
                                             >
                                               <div
-                                                class="c40"
+                                                class="c19 c40"
                                               >
                                                 <span>
                                                   <button

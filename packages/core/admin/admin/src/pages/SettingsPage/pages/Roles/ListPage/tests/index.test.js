@@ -81,6 +81,8 @@ describe('<ListPage />', () => {
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid #dcdce4;
+        position: relative;
+        outline: none;
       }
 
       .c5 svg {
@@ -95,6 +97,36 @@ describe('<ListPage />', () => {
 
       .c5[aria-disabled='true'] {
         pointer-events: none;
+      }
+
+      .c5:after {
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: -4px;
+        right: -4px;
+        border: 2px solid transparent;
+      }
+
+      .c5:focus-visible {
+        outline: none;
+      }
+
+      .c5:focus-visible:after {
+        border-radius: 8px;
+        content: '';
+        position: absolute;
+        top: -5px;
+        bottom: -5px;
+        left: -5px;
+        right: -5px;
+        border: 2px solid #4945ff;
       }
 
       .c9 {
@@ -167,11 +199,9 @@ describe('<ListPage />', () => {
       }
 
       .c16 {
-        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
-      }
-
-      .c17 {
         background: #ffffff;
+        border-radius: 4px;
+        box-shadow: 0px 1px 4px rgba(33,33,52,0.1);
       }
 
       .c19 {
@@ -196,6 +226,10 @@ describe('<ListPage />', () => {
         padding-left: 12px;
       }
 
+      .c17 {
+        overflow: hidden;
+      }
+
       .c21 {
         width: 100%;
         white-space: nowrap;
@@ -203,7 +237,6 @@ describe('<ListPage />', () => {
 
       .c18 {
         position: relative;
-        border-radius: 4px 4px 0 0;
       }
 
       .c18:before {
@@ -339,7 +372,7 @@ describe('<ListPage />', () => {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.43;
-        color: #32324d;
+        color: #666687;
       }
 
       .c27 {
@@ -500,10 +533,10 @@ describe('<ListPage />', () => {
           class="c15"
         >
           <div
-            class="c16"
+            class="c16 c17"
           >
             <div
-              class="c17 c18"
+              class="c18"
             >
               <div
                 class="c19 c20"
