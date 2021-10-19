@@ -6,7 +6,6 @@ import {
   Form,
   useOverlayBlocker,
   useNotification,
-  ContentBox,
 } from '@strapi/helper-plugin';
 import { HeaderLayout, ContentLayout } from '@strapi/parts/Layout';
 import { Main } from '@strapi/parts/Main';
@@ -23,20 +22,55 @@ import { TextInput } from '@strapi/parts/TextInput';
 import { Textarea } from '@strapi/parts/Textarea';
 import { Select, Option } from '@strapi/parts/Select';
 import get from 'lodash/get';
-import { IconButton } from '@strapi/parts/IconButton';
-import Duplicate from '@strapi/icons/Duplicate';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useRouteMatch, useHistory } from 'react-router-dom';
+import { useQuery } from 'react-query';
 import { formatAPIErrors } from '../../../../../utils';
 import { axiosInstance } from '../../../../../core/utils';
 import schema from './utils/schema';
+import LoadingView from './components/LoadingView';
+import HeaderContentBox from './components/ContentBox';
 
 const ApiTokenCreateView = () => {
-  const [accessToken, setAccessToken] = useState('');
-  const [tokenName, setTokenName] = useState('');
+  const [apiToken, setApiToken] = useState({});
   useFocusWhenNavigate();
   const { formatMessage } = useIntl();
   const { lockApp, unlockApp } = useOverlayBlocker();
   const toggleNotification = useNotification();
+  const history = useHistory();
+
+  const {
+    params: { id },
+  } = useRouteMatch('/settings/api-tokens/:id');
+
+  const isCreating = id === 'create';
+
+  const { status } = useQuery(
+    ['api-tokens', id],
+    async () => {
+      if (history.location.state?.apiToken.accessKey) {
+        setApiToken(() => history.location.state.apiToken);
+
+        return history.location.state.apiToken;
+      }
+
+      const {
+        data: { data },
+      } = await axiosInstance.get(`/admin/api-tokens/${id}`);
+
+      setApiToken(() => data);
+
+      return data;
+    },
+    {
+      enabled: !isCreating,
+      onError: () => {
+        toggleNotification({
+          type: 'warning',
+          message: { id: 'notification.error', defaultMessage: 'An error occured' },
+        });
+      },
+    }
+  );
 
   const handleSubmit = async (body, actions) => {
     lockApp();
@@ -44,15 +78,20 @@ const ApiTokenCreateView = () => {
     try {
       const {
         data: { data: response },
-      } = await axiosInstance.post(`/admin/api-tokens`, body);
+      } = isCreating
+        ? await axiosInstance.post(`/admin/api-tokens`, body)
+        : await axiosInstance.put(`/admin/api-tokens/${id}`, body);
 
-      setAccessToken(() => response.accessKey);
-      setTokenName(() => response.name);
+      setApiToken(() => response);
 
       toggleNotification({
         type: 'success',
         message: formatMessage({ id: 'notification.success.saved', defaultMessage: 'Saved' }),
       });
+
+      if (isCreating) {
+        history.replace(`/settings/api-tokens/${response.id}`, { apiToken: response });
+      }
     } catch (err) {
       const errors = formatAPIErrors(err.response.data);
       actions.setErrors(errors);
@@ -66,13 +105,25 @@ const ApiTokenCreateView = () => {
     unlockApp();
   };
 
+  const isLoading = !isCreating && status !== 'success';
+
+  if (isLoading) {
+    return <LoadingView apiTokenName={apiToken.name} />;
+  }
+
   return (
     <Main>
       <SettingsPageTitle name="API Tokens" />
       <Formik
         validationSchema={schema}
         validateOnChange={false}
-        initialValues={{ name: '', description: '', type: 'read-only' }}
+        initialValues={
+          apiToken || {
+            name: '',
+            description: '',
+            type: 'read-only',
+          }
+        }
         onSubmit={handleSubmit}
       >
         {({ errors, handleChange, isSubmitting, values }) => {
@@ -80,7 +131,7 @@ const ApiTokenCreateView = () => {
             <Form>
               <HeaderLayout
                 title={
-                  tokenName ||
+                  apiToken.name ||
                   formatMessage({
                     id: 'Settings.apiTokens.createPage.title',
                     defaultMessage: 'Create API Token',
@@ -111,51 +162,7 @@ const ApiTokenCreateView = () => {
               />
               <ContentLayout>
                 <Stack size={6}>
-                  {Boolean(accessToken) && (
-                    <ContentBox
-                      endAction={
-                        <CopyToClipboard
-                          onCopy={() => {
-                            toggleNotification({
-                              type: 'success',
-                              message: { id: 'Settings.apiTokens.notification.copied' },
-                            });
-                          }}
-                          text={accessToken}
-                        >
-                          <IconButton
-                            label={formatMessage({
-                              id: 'app.component.CopyToClipboard.label',
-                              default: 'Copy to clipboard',
-                            })}
-                            noBorder
-                            icon={<Duplicate />}
-                          />
-                        </CopyToClipboard>
-                      }
-                      title={accessToken}
-                      subtitle={formatMessage({
-                        id: 'Settings.apiTokens.copy.lastWarning',
-                        default: 'Make sure to copy this token, you won’t be able to see it again!',
-                      })}
-                      icon={
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                          <text
-                            transform="translate(-23 -9)"
-                            fill="#4B515A"
-                            fillRule="evenodd"
-                            fontSize="32"
-                            fontFamily="AppleColorEmoji, Apple Color Emoji"
-                          >
-                            <tspan x="23" y="36">
-                              🔑
-                            </tspan>
-                          </text>
-                        </svg>
-                      }
-                      iconBackground="neutral100"
-                    />
-                  )}
+                  {Boolean(apiToken.name) && <HeaderContentBox apiToken={apiToken.accessKey} />}
                   <Box
                     background="neutral0"
                     hasRadius

@@ -51,7 +51,7 @@ const TableRows = ({ canDelete, canUpdate, onClickDelete, withBulkActions, rows 
             {withBulkActions && (
               <Td>
                 <Row justifyContent="end">
-                  {canUpdate && <UpdateButton tokenName={apiToken.name} />}
+                  {canUpdate && <UpdateButton tokenName={apiToken.name} tokenId={apiToken.id} />}
                   {canDelete && (
                     <DeleteButton
                       tokenName={apiToken.name}
